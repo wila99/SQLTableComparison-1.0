@@ -16,6 +16,7 @@ namespace SQLTableComparison
     {
         string sourceMsg = "Source";
         string targetMsg = "Target";
+        GetSQLTable compareSourceConn;
         public ConfigurationForm()
         {
             InitializeComponent();
@@ -24,36 +25,8 @@ namespace SQLTableComparison
         private void ConfigurationForm_Load(object sender, EventArgs e)
         {
             SourcePasswordTextBox.PasswordChar = '*';
-            TargetPasswordTextBox.PasswordChar = '*';           
+            TargetPasswordTextBox.PasswordChar = '*';
         }
-
-
-
-        private void DatabaseConfigurationGroupBox_Enter(object sender, EventArgs e)
-        {
-
-        }
-
-        private void SourceServerNameLabel_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void SourceServerNameTextBox_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void SourceServerNameTextBox_TextChanged(object sender, EventArgs e)
-        {
-            SourceServerNameLabel.Text = SourceServerNameTextBox.Text;
-        }
-
-        private void TargetServerTextBox_TextChanged(object sender, EventArgs e)
-        {
-            TargetServerNameLabel.Text = TargetServerTextBox.Text;
-        }
-
 
         private void SourceTestConnection_Click(object sender, EventArgs e)
         {
@@ -68,15 +41,7 @@ namespace SQLTableComparison
             TestSqlConnection testTargetConnection = new TestSqlConnection(TargetServerTextBox.Text, TargetUsernameTextBox.Text, TargetPasswordTextBox.Text, TargetDatabaseTextBox.Text, TargetTableTextBox.Text);
             DisplayConnection(testTargetConnection.TestConnectionCall(), targetMsg);
         }
-        private void SourceDatabaseTextBox_TextChanged(object sender, EventArgs e)
-        {
-            SourceDatabaseName.Text = SourceDatabaseTextBox.Text;
-        }
 
-        private void TargetDatabaseTextBox_TextChanged(object sender, EventArgs e)
-        {
-            TargetDatabaseName.Text = TargetDatabaseTextBox.Text;
-        }
 
         private void CompareTablesButton_Click(object sender, EventArgs e)
         {
@@ -85,8 +50,8 @@ namespace SQLTableComparison
 
             if (testTargetConnection.TestConnectionCall() && testSourceConnection.TestConnectionCall() == true)
             {
-                GetSQLTable compareSourceConn = new GetSQLTable(@SourceServerNameTextBox.Text, SourceUsernameTextBox.Text, SourcePasswordTextBox.Text, SourceDatabaseTextBox.Text, SourceTableTextBox.Text);
-                
+                compareSourceConn = new GetSQLTable(@SourceServerNameTextBox.Text, SourceUsernameTextBox.Text, SourcePasswordTextBox.Text, SourceDatabaseTextBox.Text, SourceTableTextBox.Text);
+
                 GetSQLTable compareTestConn = new GetSQLTable(@TargetServerTextBox.Text, TargetUsernameTextBox.Text, TargetPasswordTextBox.Text, TargetDatabaseTextBox.Text, TargetTableTextBox.Text);
             }
             else
@@ -110,9 +75,31 @@ namespace SQLTableComparison
             }
         }
 
-        private void DatabaseDetailsGroupBox_Enter(object sender, EventArgs e)
+        private void SourceServerNameTextBox_TextChanged_1(object sender, EventArgs e)
         {
+            SourceServerNameLabel.Text = SourceServerNameTextBox.Text;
+        }
 
+        private void TargetServerTextBox_TextChanged_1(object sender, EventArgs e)
+        {
+            TargetServerNameLabel.Text = TargetServerTextBox.Text;
+
+        }
+
+        private void SourceDatabaseTextBox_TextChanged_1(object sender, EventArgs e)
+        {
+            SourceDatabaseName.Text = SourceDatabaseTextBox.Text;
+
+        }
+
+        private void TargetDatabaseTextBox_TextChanged_1(object sender, EventArgs e)
+        {
+            TargetDatabaseName.Text = TargetDatabaseTextBox.Text;
+        }
+
+        private void ComparedTab_Click(object sender, EventArgs e)
+        {
+            ComparisonOutputMain.DataSource = compareSourceConn.dataSet.Tables[0];
         }
     }
 }

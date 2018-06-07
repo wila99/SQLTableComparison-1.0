@@ -38,37 +38,44 @@
             this.TargetDatabaseName = new MetroFramework.Controls.MetroLabel();
             this.SourceServerNameLabel = new MetroFramework.Controls.MetroLabel();
             this.SourceDatabaseName = new MetroFramework.Controls.MetroLabel();
-            this.DatabaseConfigurationGroupBox = new System.Windows.Forms.GroupBox();
+            this.CompareTablesButton = new MetroFramework.Controls.MetroButton();
+            this.Tabs = new MetroFramework.Controls.MetroTabControl();
+            this.ConfigTab = new System.Windows.Forms.TabPage();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.TargetTableTextBox = new MetroFramework.Controls.MetroTextBox();
             this.TargetDatabaseTextBox = new MetroFramework.Controls.MetroTextBox();
             this.SourceTableTextBox = new MetroFramework.Controls.MetroTextBox();
             this.SourceDatabaseTextBox = new MetroFramework.Controls.MetroTextBox();
             this.TargetServerTextBox = new MetroFramework.Controls.MetroTextBox();
             this.SourceServerNameTextBox = new MetroFramework.Controls.MetroTextBox();
-            this.metroLabel4 = new MetroFramework.Controls.MetroLabel();
-            this.metroLabel5 = new MetroFramework.Controls.MetroLabel();
+            this.metroLabel8 = new MetroFramework.Controls.MetroLabel();
+            this.metroLabel9 = new MetroFramework.Controls.MetroLabel();
             this.TargetTestConnection = new MetroFramework.Controls.MetroButton();
             this.SourcePasswordTextBox = new MetroFramework.Controls.MetroTextBox();
             this.TargetUsernameTextBox = new MetroFramework.Controls.MetroTextBox();
-            this.metroLabel6 = new MetroFramework.Controls.MetroLabel();
-            this.metroLabel7 = new MetroFramework.Controls.MetroLabel();
-            this.TargetServerLabel = new MetroFramework.Controls.MetroLabel();
-            this.metroLabel3 = new MetroFramework.Controls.MetroLabel();
-            this.metroLabel2 = new MetroFramework.Controls.MetroLabel();
-            this.metroLabel1 = new MetroFramework.Controls.MetroLabel();
+            this.metroLabel10 = new MetroFramework.Controls.MetroLabel();
+            this.metroLabel11 = new MetroFramework.Controls.MetroLabel();
+            this.metroLabel12 = new MetroFramework.Controls.MetroLabel();
+            this.metroLabel13 = new MetroFramework.Controls.MetroLabel();
+            this.metroLabel14 = new MetroFramework.Controls.MetroLabel();
+            this.metroLabel15 = new MetroFramework.Controls.MetroLabel();
             this.SourceTestConnection = new MetroFramework.Controls.MetroButton();
             this.TargetPasswordTextBox = new MetroFramework.Controls.MetroTextBox();
             this.SourceUsernameTextBox = new MetroFramework.Controls.MetroTextBox();
-            this.SourcePasswordLabel = new MetroFramework.Controls.MetroLabel();
-            this.SourceUsernameLabel = new MetroFramework.Controls.MetroLabel();
-            this.SourceServerLabel = new MetroFramework.Controls.MetroLabel();
-            this.SourceConnectionLabel = new MetroFramework.Controls.MetroLabel();
-            this.CompareTablesButton = new MetroFramework.Controls.MetroButton();
-            this.Tabs = new MetroFramework.Controls.MetroTabControl();
+            this.metroLabel16 = new MetroFramework.Controls.MetroLabel();
+            this.metroLabel17 = new MetroFramework.Controls.MetroLabel();
+            this.metroLabel18 = new MetroFramework.Controls.MetroLabel();
+            this.metroLabel19 = new MetroFramework.Controls.MetroLabel();
+            this.ComparedTab = new System.Windows.Forms.TabPage();
+            this.ComparisonOutputMain = new System.Windows.Forms.DataGridView();
             this.DatabaseDetailsGroupBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            this.DatabaseConfigurationGroupBox.SuspendLayout();
+            this.Tabs.SuspendLayout();
+            this.ConfigTab.SuspendLayout();
+            this.groupBox1.SuspendLayout();
+            this.ComparedTab.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ComparisonOutputMain)).BeginInit();
             this.SuspendLayout();
             // 
             // SourceLabel
@@ -95,7 +102,6 @@
             // 
             // DatabaseDetailsGroupBox
             // 
-            this.DatabaseDetailsGroupBox.Controls.Add(this.Tabs);
             this.DatabaseDetailsGroupBox.Controls.Add(this.pictureBox2);
             this.DatabaseDetailsGroupBox.Controls.Add(this.pictureBox1);
             this.DatabaseDetailsGroupBox.Controls.Add(this.TargetServerNameLabel);
@@ -109,7 +115,6 @@
             this.DatabaseDetailsGroupBox.Size = new System.Drawing.Size(1075, 136);
             this.DatabaseDetailsGroupBox.TabIndex = 2;
             this.DatabaseDetailsGroupBox.TabStop = false;
-            this.DatabaseDetailsGroupBox.Enter += new System.EventHandler(this.DatabaseDetailsGroupBox_Enter);
             // 
             // pictureBox2
             // 
@@ -131,17 +136,17 @@
             // 
             // TargetServerNameLabel
             // 
-            this.TargetServerNameLabel.Location = new System.Drawing.Point(796, 83);
+            this.TargetServerNameLabel.Location = new System.Drawing.Point(697, 83);
             this.TargetServerNameLabel.Name = "TargetServerNameLabel";
-            this.TargetServerNameLabel.Size = new System.Drawing.Size(200, 21);
+            this.TargetServerNameLabel.Size = new System.Drawing.Size(318, 21);
             this.TargetServerNameLabel.TabIndex = 5;
             this.TargetServerNameLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // TargetDatabaseName
             // 
-            this.TargetDatabaseName.Location = new System.Drawing.Point(796, 102);
+            this.TargetDatabaseName.Location = new System.Drawing.Point(697, 102);
             this.TargetDatabaseName.Name = "TargetDatabaseName";
-            this.TargetDatabaseName.Size = new System.Drawing.Size(200, 21);
+            this.TargetDatabaseName.Size = new System.Drawing.Size(318, 21);
             this.TargetDatabaseName.TabIndex = 6;
             this.TargetDatabaseName.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
@@ -152,7 +157,6 @@
             this.SourceServerNameLabel.Name = "SourceServerNameLabel";
             this.SourceServerNameLabel.Size = new System.Drawing.Size(0, 0);
             this.SourceServerNameLabel.TabIndex = 3;
-            this.SourceServerNameLabel.Click += new System.EventHandler(this.SourceServerNameLabel_Click);
             // 
             // SourceDatabaseName
             // 
@@ -162,38 +166,70 @@
             this.SourceDatabaseName.Size = new System.Drawing.Size(0, 0);
             this.SourceDatabaseName.TabIndex = 4;
             // 
-            // DatabaseConfigurationGroupBox
+            // CompareTablesButton
             // 
-            this.DatabaseConfigurationGroupBox.Controls.Add(this.TargetTableTextBox);
-            this.DatabaseConfigurationGroupBox.Controls.Add(this.TargetDatabaseTextBox);
-            this.DatabaseConfigurationGroupBox.Controls.Add(this.SourceTableTextBox);
-            this.DatabaseConfigurationGroupBox.Controls.Add(this.SourceDatabaseTextBox);
-            this.DatabaseConfigurationGroupBox.Controls.Add(this.TargetServerTextBox);
-            this.DatabaseConfigurationGroupBox.Controls.Add(this.SourceServerNameTextBox);
-            this.DatabaseConfigurationGroupBox.Controls.Add(this.metroLabel4);
-            this.DatabaseConfigurationGroupBox.Controls.Add(this.metroLabel5);
-            this.DatabaseConfigurationGroupBox.Controls.Add(this.TargetTestConnection);
-            this.DatabaseConfigurationGroupBox.Controls.Add(this.SourcePasswordTextBox);
-            this.DatabaseConfigurationGroupBox.Controls.Add(this.TargetUsernameTextBox);
-            this.DatabaseConfigurationGroupBox.Controls.Add(this.metroLabel6);
-            this.DatabaseConfigurationGroupBox.Controls.Add(this.metroLabel7);
-            this.DatabaseConfigurationGroupBox.Controls.Add(this.TargetServerLabel);
-            this.DatabaseConfigurationGroupBox.Controls.Add(this.metroLabel3);
-            this.DatabaseConfigurationGroupBox.Controls.Add(this.metroLabel2);
-            this.DatabaseConfigurationGroupBox.Controls.Add(this.metroLabel1);
-            this.DatabaseConfigurationGroupBox.Controls.Add(this.SourceTestConnection);
-            this.DatabaseConfigurationGroupBox.Controls.Add(this.TargetPasswordTextBox);
-            this.DatabaseConfigurationGroupBox.Controls.Add(this.SourceUsernameTextBox);
-            this.DatabaseConfigurationGroupBox.Controls.Add(this.SourcePasswordLabel);
-            this.DatabaseConfigurationGroupBox.Controls.Add(this.SourceUsernameLabel);
-            this.DatabaseConfigurationGroupBox.Controls.Add(this.SourceServerLabel);
-            this.DatabaseConfigurationGroupBox.Controls.Add(this.SourceConnectionLabel);
-            this.DatabaseConfigurationGroupBox.Location = new System.Drawing.Point(23, 205);
-            this.DatabaseConfigurationGroupBox.Name = "DatabaseConfigurationGroupBox";
-            this.DatabaseConfigurationGroupBox.Size = new System.Drawing.Size(1075, 382);
-            this.DatabaseConfigurationGroupBox.TabIndex = 3;
-            this.DatabaseConfigurationGroupBox.TabStop = false;
-            this.DatabaseConfigurationGroupBox.Enter += new System.EventHandler(this.DatabaseConfigurationGroupBox_Enter);
+            this.CompareTablesButton.Location = new System.Drawing.Point(934, 609);
+            this.CompareTablesButton.Name = "CompareTablesButton";
+            this.CompareTablesButton.Size = new System.Drawing.Size(164, 33);
+            this.CompareTablesButton.TabIndex = 4;
+            this.CompareTablesButton.Text = "Compare Tables";
+            this.CompareTablesButton.UseSelectable = true;
+            this.CompareTablesButton.Click += new System.EventHandler(this.CompareTablesButton_Click);
+            // 
+            // Tabs
+            // 
+            this.Tabs.Controls.Add(this.ConfigTab);
+            this.Tabs.Controls.Add(this.ComparedTab);
+            this.Tabs.Location = new System.Drawing.Point(23, 199);
+            this.Tabs.Name = "Tabs";
+            this.Tabs.SelectedIndex = 0;
+            this.Tabs.Size = new System.Drawing.Size(1075, 408);
+            this.Tabs.Style = MetroFramework.MetroColorStyle.Black;
+            this.Tabs.TabIndex = 34;
+            this.Tabs.UseSelectable = true;
+            this.Tabs.SelectedIndexChanged += new System.EventHandler(this.ComparedTab_Click);
+            // 
+            // ConfigTab
+            // 
+            this.ConfigTab.BackColor = System.Drawing.Color.White;
+            this.ConfigTab.Controls.Add(this.groupBox1);
+            this.ConfigTab.Location = new System.Drawing.Point(4, 38);
+            this.ConfigTab.Name = "ConfigTab";
+            this.ConfigTab.Size = new System.Drawing.Size(1067, 366);
+            this.ConfigTab.TabIndex = 0;
+            this.ConfigTab.Text = "Configuration";
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.TargetTableTextBox);
+            this.groupBox1.Controls.Add(this.TargetDatabaseTextBox);
+            this.groupBox1.Controls.Add(this.SourceTableTextBox);
+            this.groupBox1.Controls.Add(this.SourceDatabaseTextBox);
+            this.groupBox1.Controls.Add(this.TargetServerTextBox);
+            this.groupBox1.Controls.Add(this.SourceServerNameTextBox);
+            this.groupBox1.Controls.Add(this.metroLabel8);
+            this.groupBox1.Controls.Add(this.metroLabel9);
+            this.groupBox1.Controls.Add(this.TargetTestConnection);
+            this.groupBox1.Controls.Add(this.SourcePasswordTextBox);
+            this.groupBox1.Controls.Add(this.TargetUsernameTextBox);
+            this.groupBox1.Controls.Add(this.metroLabel10);
+            this.groupBox1.Controls.Add(this.metroLabel11);
+            this.groupBox1.Controls.Add(this.metroLabel12);
+            this.groupBox1.Controls.Add(this.metroLabel13);
+            this.groupBox1.Controls.Add(this.metroLabel14);
+            this.groupBox1.Controls.Add(this.metroLabel15);
+            this.groupBox1.Controls.Add(this.SourceTestConnection);
+            this.groupBox1.Controls.Add(this.TargetPasswordTextBox);
+            this.groupBox1.Controls.Add(this.SourceUsernameTextBox);
+            this.groupBox1.Controls.Add(this.metroLabel16);
+            this.groupBox1.Controls.Add(this.metroLabel17);
+            this.groupBox1.Controls.Add(this.metroLabel18);
+            this.groupBox1.Controls.Add(this.metroLabel19);
+            this.groupBox1.Location = new System.Drawing.Point(0, 0);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(1064, 363);
+            this.groupBox1.TabIndex = 4;
+            this.groupBox1.TabStop = false;
             // 
             // TargetTableTextBox
             // 
@@ -209,7 +245,8 @@
             this.TargetTableTextBox.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
             this.TargetTableTextBox.CustomButton.UseSelectable = true;
             this.TargetTableTextBox.CustomButton.Visible = false;
-            this.TargetTableTextBox.Lines = new string[0];
+            this.TargetTableTextBox.Lines = new string[] {
+        "GL_USR"};
             this.TargetTableTextBox.Location = new System.Drawing.Point(619, 303);
             this.TargetTableTextBox.MaxLength = 50;
             this.TargetTableTextBox.Name = "TargetTableTextBox";
@@ -221,6 +258,7 @@
             this.TargetTableTextBox.ShortcutsEnabled = true;
             this.TargetTableTextBox.Size = new System.Drawing.Size(384, 23);
             this.TargetTableTextBox.TabIndex = 33;
+            this.TargetTableTextBox.Text = "GL_USR";
             this.TargetTableTextBox.UseSelectable = true;
             this.TargetTableTextBox.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.TargetTableTextBox.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
@@ -239,7 +277,8 @@
             this.TargetDatabaseTextBox.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
             this.TargetDatabaseTextBox.CustomButton.UseSelectable = true;
             this.TargetDatabaseTextBox.CustomButton.Visible = false;
-            this.TargetDatabaseTextBox.Lines = new string[0];
+            this.TargetDatabaseTextBox.Lines = new string[] {
+        "CWA_TEST2"};
             this.TargetDatabaseTextBox.Location = new System.Drawing.Point(619, 249);
             this.TargetDatabaseTextBox.MaxLength = 50;
             this.TargetDatabaseTextBox.Name = "TargetDatabaseTextBox";
@@ -251,10 +290,11 @@
             this.TargetDatabaseTextBox.ShortcutsEnabled = true;
             this.TargetDatabaseTextBox.Size = new System.Drawing.Size(384, 23);
             this.TargetDatabaseTextBox.TabIndex = 32;
+            this.TargetDatabaseTextBox.Text = "CWA_TEST2";
             this.TargetDatabaseTextBox.UseSelectable = true;
             this.TargetDatabaseTextBox.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.TargetDatabaseTextBox.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
-            this.TargetDatabaseTextBox.TextChanged += new System.EventHandler(this.TargetDatabaseTextBox_TextChanged);
+            this.TargetDatabaseTextBox.TextChanged += new System.EventHandler(this.TargetDatabaseTextBox_TextChanged_1);
             // 
             // SourceTableTextBox
             // 
@@ -270,7 +310,8 @@
             this.SourceTableTextBox.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
             this.SourceTableTextBox.CustomButton.UseSelectable = true;
             this.SourceTableTextBox.CustomButton.Visible = false;
-            this.SourceTableTextBox.Lines = new string[0];
+            this.SourceTableTextBox.Lines = new string[] {
+        "GL_USR"};
             this.SourceTableTextBox.Location = new System.Drawing.Point(40, 303);
             this.SourceTableTextBox.MaxLength = 32767;
             this.SourceTableTextBox.Name = "SourceTableTextBox";
@@ -282,6 +323,7 @@
             this.SourceTableTextBox.ShortcutsEnabled = true;
             this.SourceTableTextBox.Size = new System.Drawing.Size(384, 23);
             this.SourceTableTextBox.TabIndex = 28;
+            this.SourceTableTextBox.Text = "GL_USR";
             this.SourceTableTextBox.UseSelectable = true;
             this.SourceTableTextBox.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.SourceTableTextBox.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
@@ -300,7 +342,8 @@
             this.SourceDatabaseTextBox.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
             this.SourceDatabaseTextBox.CustomButton.UseSelectable = true;
             this.SourceDatabaseTextBox.CustomButton.Visible = false;
-            this.SourceDatabaseTextBox.Lines = new string[0];
+            this.SourceDatabaseTextBox.Lines = new string[] {
+        "CWA_TEST2"};
             this.SourceDatabaseTextBox.Location = new System.Drawing.Point(40, 249);
             this.SourceDatabaseTextBox.MaxLength = 75;
             this.SourceDatabaseTextBox.Name = "SourceDatabaseTextBox";
@@ -312,10 +355,11 @@
             this.SourceDatabaseTextBox.ShortcutsEnabled = true;
             this.SourceDatabaseTextBox.Size = new System.Drawing.Size(384, 23);
             this.SourceDatabaseTextBox.TabIndex = 27;
+            this.SourceDatabaseTextBox.Text = "CWA_TEST2";
             this.SourceDatabaseTextBox.UseSelectable = true;
             this.SourceDatabaseTextBox.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.SourceDatabaseTextBox.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
-            this.SourceDatabaseTextBox.TextChanged += new System.EventHandler(this.SourceDatabaseTextBox_TextChanged);
+            this.SourceDatabaseTextBox.TextChanged += new System.EventHandler(this.SourceDatabaseTextBox_TextChanged_1);
             // 
             // TargetServerTextBox
             // 
@@ -331,7 +375,8 @@
             this.TargetServerTextBox.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
             this.TargetServerTextBox.CustomButton.UseSelectable = true;
             this.TargetServerTextBox.CustomButton.Visible = false;
-            this.TargetServerTextBox.Lines = new string[0];
+            this.TargetServerTextBox.Lines = new string[] {
+        "WIN10WARTER\\SQL2016XP"};
             this.TargetServerTextBox.Location = new System.Drawing.Point(619, 109);
             this.TargetServerTextBox.MaxLength = 50;
             this.TargetServerTextBox.Name = "TargetServerTextBox";
@@ -343,10 +388,11 @@
             this.TargetServerTextBox.ShortcutsEnabled = true;
             this.TargetServerTextBox.Size = new System.Drawing.Size(384, 23);
             this.TargetServerTextBox.TabIndex = 29;
+            this.TargetServerTextBox.Text = "WIN10WARTER\\SQL2016XP";
             this.TargetServerTextBox.UseSelectable = true;
             this.TargetServerTextBox.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.TargetServerTextBox.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
-            this.TargetServerTextBox.TextChanged += new System.EventHandler(this.TargetServerTextBox_TextChanged);
+            this.TargetServerTextBox.TextChanged += new System.EventHandler(this.TargetServerTextBox_TextChanged_1);
             // 
             // SourceServerNameTextBox
             // 
@@ -362,7 +408,8 @@
             this.SourceServerNameTextBox.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
             this.SourceServerNameTextBox.CustomButton.UseSelectable = true;
             this.SourceServerNameTextBox.CustomButton.Visible = false;
-            this.SourceServerNameTextBox.Lines = new string[0];
+            this.SourceServerNameTextBox.Lines = new string[] {
+        "WIN10WARTER\\SQL2016XP"};
             this.SourceServerNameTextBox.Location = new System.Drawing.Point(40, 109);
             this.SourceServerNameTextBox.MaxLength = 50;
             this.SourceServerNameTextBox.Name = "SourceServerNameTextBox";
@@ -374,31 +421,31 @@
             this.SourceServerNameTextBox.ShortcutsEnabled = true;
             this.SourceServerNameTextBox.Size = new System.Drawing.Size(384, 23);
             this.SourceServerNameTextBox.TabIndex = 24;
+            this.SourceServerNameTextBox.Text = "WIN10WARTER\\SQL2016XP";
             this.SourceServerNameTextBox.UseSelectable = true;
             this.SourceServerNameTextBox.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.SourceServerNameTextBox.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
-            this.SourceServerNameTextBox.TextChanged += new System.EventHandler(this.SourceServerNameTextBox_TextChanged);
-            this.SourceServerNameTextBox.Click += new System.EventHandler(this.SourceServerNameTextBox_Click);
+            this.SourceServerNameTextBox.TextChanged += new System.EventHandler(this.SourceServerNameTextBox_TextChanged_1);
             // 
-            // metroLabel4
+            // metroLabel8
             // 
-            this.metroLabel4.AutoSize = true;
-            this.metroLabel4.FontSize = MetroFramework.MetroLabelSize.Tall;
-            this.metroLabel4.Location = new System.Drawing.Point(595, 275);
-            this.metroLabel4.Name = "metroLabel4";
-            this.metroLabel4.Size = new System.Drawing.Size(50, 25);
-            this.metroLabel4.TabIndex = 21;
-            this.metroLabel4.Text = "Table";
+            this.metroLabel8.AutoSize = true;
+            this.metroLabel8.FontSize = MetroFramework.MetroLabelSize.Tall;
+            this.metroLabel8.Location = new System.Drawing.Point(595, 275);
+            this.metroLabel8.Name = "metroLabel8";
+            this.metroLabel8.Size = new System.Drawing.Size(50, 25);
+            this.metroLabel8.TabIndex = 21;
+            this.metroLabel8.Text = "Table";
             // 
-            // metroLabel5
+            // metroLabel9
             // 
-            this.metroLabel5.AutoSize = true;
-            this.metroLabel5.FontSize = MetroFramework.MetroLabelSize.Tall;
-            this.metroLabel5.Location = new System.Drawing.Point(595, 221);
-            this.metroLabel5.Name = "metroLabel5";
-            this.metroLabel5.Size = new System.Drawing.Size(82, 25);
-            this.metroLabel5.TabIndex = 20;
-            this.metroLabel5.Text = "Database";
+            this.metroLabel9.AutoSize = true;
+            this.metroLabel9.FontSize = MetroFramework.MetroLabelSize.Tall;
+            this.metroLabel9.Location = new System.Drawing.Point(595, 221);
+            this.metroLabel9.Name = "metroLabel9";
+            this.metroLabel9.Size = new System.Drawing.Size(82, 25);
+            this.metroLabel9.TabIndex = 20;
+            this.metroLabel9.Text = "Database";
             // 
             // TargetTestConnection
             // 
@@ -408,7 +455,6 @@
             this.TargetTestConnection.TabIndex = 19;
             this.TargetTestConnection.Text = "Test Connection";
             this.TargetTestConnection.UseSelectable = true;
-            this.TargetTestConnection.Click += new System.EventHandler(this.TargetTestConnection_Click);
             // 
             // SourcePasswordTextBox
             // 
@@ -424,7 +470,8 @@
             this.SourcePasswordTextBox.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
             this.SourcePasswordTextBox.CustomButton.UseSelectable = true;
             this.SourcePasswordTextBox.CustomButton.Visible = false;
-            this.SourcePasswordTextBox.Lines = new string[0];
+            this.SourcePasswordTextBox.Lines = new string[] {
+        "strongSA1"};
             this.SourcePasswordTextBox.Location = new System.Drawing.Point(114, 173);
             this.SourcePasswordTextBox.MaxLength = 32767;
             this.SourcePasswordTextBox.Name = "SourcePasswordTextBox";
@@ -436,6 +483,7 @@
             this.SourcePasswordTextBox.ShortcutsEnabled = true;
             this.SourcePasswordTextBox.Size = new System.Drawing.Size(310, 23);
             this.SourcePasswordTextBox.TabIndex = 26;
+            this.SourcePasswordTextBox.Text = "strongSA1";
             this.SourcePasswordTextBox.UseSelectable = true;
             this.SourcePasswordTextBox.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.SourcePasswordTextBox.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
@@ -454,7 +502,8 @@
             this.TargetUsernameTextBox.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
             this.TargetUsernameTextBox.CustomButton.UseSelectable = true;
             this.TargetUsernameTextBox.CustomButton.Visible = false;
-            this.TargetUsernameTextBox.Lines = new string[0];
+            this.TargetUsernameTextBox.Lines = new string[] {
+        "SA"};
             this.TargetUsernameTextBox.Location = new System.Drawing.Point(693, 144);
             this.TargetUsernameTextBox.MaxLength = 32767;
             this.TargetUsernameTextBox.Name = "TargetUsernameTextBox";
@@ -466,67 +515,68 @@
             this.TargetUsernameTextBox.ShortcutsEnabled = true;
             this.TargetUsernameTextBox.Size = new System.Drawing.Size(310, 23);
             this.TargetUsernameTextBox.TabIndex = 30;
+            this.TargetUsernameTextBox.Text = "SA";
             this.TargetUsernameTextBox.UseSelectable = true;
             this.TargetUsernameTextBox.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.TargetUsernameTextBox.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
             // 
-            // metroLabel6
+            // metroLabel10
             // 
-            this.metroLabel6.AutoSize = true;
-            this.metroLabel6.Location = new System.Drawing.Point(619, 173);
-            this.metroLabel6.Name = "metroLabel6";
-            this.metroLabel6.Size = new System.Drawing.Size(63, 19);
-            this.metroLabel6.TabIndex = 16;
-            this.metroLabel6.Text = "Password";
+            this.metroLabel10.AutoSize = true;
+            this.metroLabel10.Location = new System.Drawing.Point(619, 173);
+            this.metroLabel10.Name = "metroLabel10";
+            this.metroLabel10.Size = new System.Drawing.Size(63, 19);
+            this.metroLabel10.TabIndex = 16;
+            this.metroLabel10.Text = "Password";
             // 
-            // metroLabel7
+            // metroLabel11
             // 
-            this.metroLabel7.AutoSize = true;
-            this.metroLabel7.Location = new System.Drawing.Point(619, 144);
-            this.metroLabel7.Name = "metroLabel7";
-            this.metroLabel7.Size = new System.Drawing.Size(68, 19);
-            this.metroLabel7.TabIndex = 15;
-            this.metroLabel7.Text = "Username";
+            this.metroLabel11.AutoSize = true;
+            this.metroLabel11.Location = new System.Drawing.Point(619, 144);
+            this.metroLabel11.Name = "metroLabel11";
+            this.metroLabel11.Size = new System.Drawing.Size(68, 19);
+            this.metroLabel11.TabIndex = 15;
+            this.metroLabel11.Text = "Username";
             // 
-            // TargetServerLabel
+            // metroLabel12
             // 
-            this.TargetServerLabel.AutoSize = true;
-            this.TargetServerLabel.FontSize = MetroFramework.MetroLabelSize.Tall;
-            this.TargetServerLabel.Location = new System.Drawing.Point(595, 81);
-            this.TargetServerLabel.Name = "TargetServerLabel";
-            this.TargetServerLabel.Size = new System.Drawing.Size(60, 25);
-            this.TargetServerLabel.TabIndex = 13;
-            this.TargetServerLabel.Text = "Server";
+            this.metroLabel12.AutoSize = true;
+            this.metroLabel12.FontSize = MetroFramework.MetroLabelSize.Tall;
+            this.metroLabel12.Location = new System.Drawing.Point(595, 81);
+            this.metroLabel12.Name = "metroLabel12";
+            this.metroLabel12.Size = new System.Drawing.Size(60, 25);
+            this.metroLabel12.TabIndex = 13;
+            this.metroLabel12.Text = "Server";
             // 
-            // metroLabel3
+            // metroLabel13
             // 
-            this.metroLabel3.AutoSize = true;
-            this.metroLabel3.FontSize = MetroFramework.MetroLabelSize.Tall;
-            this.metroLabel3.Location = new System.Drawing.Point(16, 275);
-            this.metroLabel3.Name = "metroLabel3";
-            this.metroLabel3.Size = new System.Drawing.Size(50, 25);
-            this.metroLabel3.TabIndex = 10;
-            this.metroLabel3.Text = "Table";
+            this.metroLabel13.AutoSize = true;
+            this.metroLabel13.FontSize = MetroFramework.MetroLabelSize.Tall;
+            this.metroLabel13.Location = new System.Drawing.Point(16, 275);
+            this.metroLabel13.Name = "metroLabel13";
+            this.metroLabel13.Size = new System.Drawing.Size(50, 25);
+            this.metroLabel13.TabIndex = 10;
+            this.metroLabel13.Text = "Table";
             // 
-            // metroLabel2
+            // metroLabel14
             // 
-            this.metroLabel2.AutoSize = true;
-            this.metroLabel2.FontSize = MetroFramework.MetroLabelSize.Tall;
-            this.metroLabel2.Location = new System.Drawing.Point(16, 221);
-            this.metroLabel2.Name = "metroLabel2";
-            this.metroLabel2.Size = new System.Drawing.Size(82, 25);
-            this.metroLabel2.TabIndex = 9;
-            this.metroLabel2.Text = "Database";
+            this.metroLabel14.AutoSize = true;
+            this.metroLabel14.FontSize = MetroFramework.MetroLabelSize.Tall;
+            this.metroLabel14.Location = new System.Drawing.Point(16, 221);
+            this.metroLabel14.Name = "metroLabel14";
+            this.metroLabel14.Size = new System.Drawing.Size(82, 25);
+            this.metroLabel14.TabIndex = 9;
+            this.metroLabel14.Text = "Database";
             // 
-            // metroLabel1
+            // metroLabel15
             // 
-            this.metroLabel1.AutoSize = true;
-            this.metroLabel1.FontSize = MetroFramework.MetroLabelSize.Tall;
-            this.metroLabel1.Location = new System.Drawing.Point(619, 26);
-            this.metroLabel1.Name = "metroLabel1";
-            this.metroLabel1.Size = new System.Drawing.Size(204, 25);
-            this.metroLabel1.TabIndex = 8;
-            this.metroLabel1.Text = "Target Connection Details";
+            this.metroLabel15.AutoSize = true;
+            this.metroLabel15.FontSize = MetroFramework.MetroLabelSize.Tall;
+            this.metroLabel15.Location = new System.Drawing.Point(619, 26);
+            this.metroLabel15.Name = "metroLabel15";
+            this.metroLabel15.Size = new System.Drawing.Size(204, 25);
+            this.metroLabel15.TabIndex = 8;
+            this.metroLabel15.Text = "Target Connection Details";
             // 
             // SourceTestConnection
             // 
@@ -536,7 +586,6 @@
             this.SourceTestConnection.TabIndex = 7;
             this.SourceTestConnection.Text = "Test Connection";
             this.SourceTestConnection.UseSelectable = true;
-            this.SourceTestConnection.Click += new System.EventHandler(this.SourceTestConnection_Click);
             // 
             // TargetPasswordTextBox
             // 
@@ -552,7 +601,8 @@
             this.TargetPasswordTextBox.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
             this.TargetPasswordTextBox.CustomButton.UseSelectable = true;
             this.TargetPasswordTextBox.CustomButton.Visible = false;
-            this.TargetPasswordTextBox.Lines = new string[0];
+            this.TargetPasswordTextBox.Lines = new string[] {
+        "strongSA1"};
             this.TargetPasswordTextBox.Location = new System.Drawing.Point(693, 173);
             this.TargetPasswordTextBox.MaxLength = 32767;
             this.TargetPasswordTextBox.Name = "TargetPasswordTextBox";
@@ -564,6 +614,7 @@
             this.TargetPasswordTextBox.ShortcutsEnabled = true;
             this.TargetPasswordTextBox.Size = new System.Drawing.Size(310, 23);
             this.TargetPasswordTextBox.TabIndex = 31;
+            this.TargetPasswordTextBox.Text = "strongSA1";
             this.TargetPasswordTextBox.UseSelectable = true;
             this.TargetPasswordTextBox.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.TargetPasswordTextBox.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
@@ -582,7 +633,8 @@
             this.SourceUsernameTextBox.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
             this.SourceUsernameTextBox.CustomButton.UseSelectable = true;
             this.SourceUsernameTextBox.CustomButton.Visible = false;
-            this.SourceUsernameTextBox.Lines = new string[0];
+            this.SourceUsernameTextBox.Lines = new string[] {
+        "SA"};
             this.SourceUsernameTextBox.Location = new System.Drawing.Point(114, 144);
             this.SourceUsernameTextBox.MaxLength = 32767;
             this.SourceUsernameTextBox.Name = "SourceUsernameTextBox";
@@ -594,73 +646,76 @@
             this.SourceUsernameTextBox.ShortcutsEnabled = true;
             this.SourceUsernameTextBox.Size = new System.Drawing.Size(310, 23);
             this.SourceUsernameTextBox.TabIndex = 25;
+            this.SourceUsernameTextBox.Text = "SA";
             this.SourceUsernameTextBox.UseSelectable = true;
             this.SourceUsernameTextBox.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.SourceUsernameTextBox.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
             // 
-            // SourcePasswordLabel
+            // metroLabel16
             // 
-            this.SourcePasswordLabel.AutoSize = true;
-            this.SourcePasswordLabel.Location = new System.Drawing.Point(40, 173);
-            this.SourcePasswordLabel.Name = "SourcePasswordLabel";
-            this.SourcePasswordLabel.Size = new System.Drawing.Size(63, 19);
-            this.SourcePasswordLabel.TabIndex = 4;
-            this.SourcePasswordLabel.Text = "Password";
+            this.metroLabel16.AutoSize = true;
+            this.metroLabel16.Location = new System.Drawing.Point(40, 173);
+            this.metroLabel16.Name = "metroLabel16";
+            this.metroLabel16.Size = new System.Drawing.Size(63, 19);
+            this.metroLabel16.TabIndex = 4;
+            this.metroLabel16.Text = "Password";
             // 
-            // SourceUsernameLabel
+            // metroLabel17
             // 
-            this.SourceUsernameLabel.AutoSize = true;
-            this.SourceUsernameLabel.Location = new System.Drawing.Point(40, 144);
-            this.SourceUsernameLabel.Name = "SourceUsernameLabel";
-            this.SourceUsernameLabel.Size = new System.Drawing.Size(68, 19);
-            this.SourceUsernameLabel.TabIndex = 3;
-            this.SourceUsernameLabel.Text = "Username";
+            this.metroLabel17.AutoSize = true;
+            this.metroLabel17.Location = new System.Drawing.Point(40, 144);
+            this.metroLabel17.Name = "metroLabel17";
+            this.metroLabel17.Size = new System.Drawing.Size(68, 19);
+            this.metroLabel17.TabIndex = 3;
+            this.metroLabel17.Text = "Username";
             // 
-            // SourceServerLabel
+            // metroLabel18
             // 
-            this.SourceServerLabel.AutoSize = true;
-            this.SourceServerLabel.FontSize = MetroFramework.MetroLabelSize.Tall;
-            this.SourceServerLabel.Location = new System.Drawing.Point(16, 81);
-            this.SourceServerLabel.Name = "SourceServerLabel";
-            this.SourceServerLabel.Size = new System.Drawing.Size(60, 25);
-            this.SourceServerLabel.TabIndex = 1;
-            this.SourceServerLabel.Text = "Server";
+            this.metroLabel18.AutoSize = true;
+            this.metroLabel18.FontSize = MetroFramework.MetroLabelSize.Tall;
+            this.metroLabel18.Location = new System.Drawing.Point(16, 81);
+            this.metroLabel18.Name = "metroLabel18";
+            this.metroLabel18.Size = new System.Drawing.Size(60, 25);
+            this.metroLabel18.TabIndex = 1;
+            this.metroLabel18.Text = "Server";
             // 
-            // SourceConnectionLabel
+            // metroLabel19
             // 
-            this.SourceConnectionLabel.AutoSize = true;
-            this.SourceConnectionLabel.FontSize = MetroFramework.MetroLabelSize.Tall;
-            this.SourceConnectionLabel.Location = new System.Drawing.Point(6, 26);
-            this.SourceConnectionLabel.Name = "SourceConnectionLabel";
-            this.SourceConnectionLabel.Size = new System.Drawing.Size(211, 25);
-            this.SourceConnectionLabel.TabIndex = 0;
-            this.SourceConnectionLabel.Text = "Source Connection Details";
+            this.metroLabel19.AutoSize = true;
+            this.metroLabel19.FontSize = MetroFramework.MetroLabelSize.Tall;
+            this.metroLabel19.Location = new System.Drawing.Point(6, 26);
+            this.metroLabel19.Name = "metroLabel19";
+            this.metroLabel19.Size = new System.Drawing.Size(211, 25);
+            this.metroLabel19.TabIndex = 0;
+            this.metroLabel19.Text = "Source Connection Details";
             // 
-            // CompareTablesButton
+            // ComparedTab
             // 
-            this.CompareTablesButton.Location = new System.Drawing.Point(934, 593);
-            this.CompareTablesButton.Name = "CompareTablesButton";
-            this.CompareTablesButton.Size = new System.Drawing.Size(164, 33);
-            this.CompareTablesButton.TabIndex = 4;
-            this.CompareTablesButton.Text = "Compare Tables";
-            this.CompareTablesButton.UseSelectable = true;
-            this.CompareTablesButton.Click += new System.EventHandler(this.CompareTablesButton_Click);
+            this.ComparedTab.BackColor = System.Drawing.Color.White;
+            this.ComparedTab.Controls.Add(this.ComparisonOutputMain);
+            this.ComparedTab.Location = new System.Drawing.Point(4, 38);
+            this.ComparedTab.Name = "ComparedTab";
+            this.ComparedTab.Size = new System.Drawing.Size(1067, 366);
+            this.ComparedTab.TabIndex = 1;
+            this.ComparedTab.Text = "Compared";
+            this.ComparedTab.Click += new System.EventHandler(this.ComparedTab_Click);
             // 
-            // Tabs
+            // ComparisonOutputMain
             // 
-            this.Tabs.Location = new System.Drawing.Point(256, 131);
-            this.Tabs.Name = "Tabs";
-            this.Tabs.Size = new System.Drawing.Size(200, 100);
-            this.Tabs.TabIndex = 34;
-            this.Tabs.UseSelectable = true;
+            this.ComparisonOutputMain.BackgroundColor = System.Drawing.Color.White;
+            this.ComparisonOutputMain.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.ComparisonOutputMain.Location = new System.Drawing.Point(3, 3);
+            this.ComparisonOutputMain.Name = "ComparisonOutputMain";
+            this.ComparisonOutputMain.Size = new System.Drawing.Size(1061, 360);
+            this.ComparisonOutputMain.TabIndex = 36;
             // 
             // ConfigurationForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1121, 649);
+            this.Controls.Add(this.Tabs);
             this.Controls.Add(this.CompareTablesButton);
-            this.Controls.Add(this.DatabaseConfigurationGroupBox);
             this.Controls.Add(this.DatabaseDetailsGroupBox);
             this.Name = "ConfigurationForm";
             this.Style = MetroFramework.MetroColorStyle.Black;
@@ -670,8 +725,12 @@
             this.DatabaseDetailsGroupBox.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            this.DatabaseConfigurationGroupBox.ResumeLayout(false);
-            this.DatabaseConfigurationGroupBox.PerformLayout();
+            this.Tabs.ResumeLayout(false);
+            this.ConfigTab.ResumeLayout(false);
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
+            this.ComparedTab.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.ComparisonOutputMain)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -685,35 +744,38 @@
         private MetroFramework.Controls.MetroLabel SourceDatabaseName;
         private MetroFramework.Controls.MetroLabel TargetServerNameLabel;
         private MetroFramework.Controls.MetroLabel TargetDatabaseName;
-        private System.Windows.Forms.GroupBox DatabaseConfigurationGroupBox;
-        private MetroFramework.Controls.MetroLabel SourceServerLabel;
-        private MetroFramework.Controls.MetroLabel SourceConnectionLabel;
-        private MetroFramework.Controls.MetroTextBox TargetPasswordTextBox;
-        private MetroFramework.Controls.MetroTextBox SourceUsernameTextBox;
-        private MetroFramework.Controls.MetroLabel SourcePasswordLabel;
-        private MetroFramework.Controls.MetroLabel SourceUsernameLabel;
-        private MetroFramework.Controls.MetroButton SourceTestConnection;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private MetroFramework.Controls.MetroLabel metroLabel4;
-        private MetroFramework.Controls.MetroLabel metroLabel5;
+        private MetroFramework.Controls.MetroButton CompareTablesButton;
+        private System.Windows.Forms.PictureBox pictureBox2;
+        private MetroFramework.Controls.MetroTabControl Tabs;
+        private System.Windows.Forms.TabPage ConfigTab;
+        private System.Windows.Forms.TabPage ComparedTab;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private MetroFramework.Controls.MetroTextBox TargetTableTextBox;
+        private MetroFramework.Controls.MetroTextBox TargetDatabaseTextBox;
+        private MetroFramework.Controls.MetroTextBox SourceTableTextBox;
+        private MetroFramework.Controls.MetroTextBox SourceDatabaseTextBox;
+        private MetroFramework.Controls.MetroTextBox TargetServerTextBox;
+        private MetroFramework.Controls.MetroTextBox SourceServerNameTextBox;
+        private MetroFramework.Controls.MetroLabel metroLabel8;
+        private MetroFramework.Controls.MetroLabel metroLabel9;
         private MetroFramework.Controls.MetroButton TargetTestConnection;
         private MetroFramework.Controls.MetroTextBox SourcePasswordTextBox;
         private MetroFramework.Controls.MetroTextBox TargetUsernameTextBox;
-        private MetroFramework.Controls.MetroLabel metroLabel6;
-        private MetroFramework.Controls.MetroLabel metroLabel7;
-        private MetroFramework.Controls.MetroLabel TargetServerLabel;
-        private MetroFramework.Controls.MetroLabel metroLabel3;
-        private MetroFramework.Controls.MetroLabel metroLabel2;
-        private MetroFramework.Controls.MetroLabel metroLabel1;
-        private MetroFramework.Controls.MetroButton CompareTablesButton;
-        private System.Windows.Forms.PictureBox pictureBox2;
-        private MetroFramework.Controls.MetroTextBox TargetServerTextBox;
-        private MetroFramework.Controls.MetroTextBox SourceServerNameTextBox;
-        private MetroFramework.Controls.MetroTextBox SourceTableTextBox;
-        private MetroFramework.Controls.MetroTextBox SourceDatabaseTextBox;
-        private MetroFramework.Controls.MetroTextBox TargetTableTextBox;
-        private MetroFramework.Controls.MetroTextBox TargetDatabaseTextBox;
-        private MetroFramework.Controls.MetroTabControl Tabs;
+        private MetroFramework.Controls.MetroLabel metroLabel10;
+        private MetroFramework.Controls.MetroLabel metroLabel11;
+        private MetroFramework.Controls.MetroLabel metroLabel12;
+        private MetroFramework.Controls.MetroLabel metroLabel13;
+        private MetroFramework.Controls.MetroLabel metroLabel14;
+        private MetroFramework.Controls.MetroLabel metroLabel15;
+        private MetroFramework.Controls.MetroButton SourceTestConnection;
+        private MetroFramework.Controls.MetroTextBox TargetPasswordTextBox;
+        private MetroFramework.Controls.MetroTextBox SourceUsernameTextBox;
+        private MetroFramework.Controls.MetroLabel metroLabel16;
+        private MetroFramework.Controls.MetroLabel metroLabel17;
+        private MetroFramework.Controls.MetroLabel metroLabel18;
+        private MetroFramework.Controls.MetroLabel metroLabel19;
+        private System.Windows.Forms.DataGridView ComparisonOutputMain;
     }
 }
 
