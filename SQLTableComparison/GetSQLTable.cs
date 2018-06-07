@@ -32,7 +32,7 @@ namespace SQLTableComparison
                                         "server=" + serverName + ";" +
                                        "Trusted_Connection=yes;" +
                                        "database=" + Database + ";" +
-                                       "connection timeout=30");
+                                       "connection timeout=10");
             QueryTable();
         }
 
@@ -47,12 +47,8 @@ namespace SQLTableComparison
             sqlDataAdapter.Fill(dataSet);
             compareConnection.Close();
             sqlDataAdapter.Dispose();
-
-
         }
-        public DataSet GetData() {
-            return dataSet;
-        }
+       
     }
 }
 

@@ -17,6 +17,8 @@ namespace SQLTableComparison
         string sourceMsg = "Source";
         string targetMsg = "Target";
         GetSQLTable compareSourceConn;
+        GetSQLTable compareTargetConn;
+        ResultContext resultContext;
         public ConfigurationForm()
         {
             InitializeComponent();
@@ -51,8 +53,15 @@ namespace SQLTableComparison
             if (testTargetConnection.TestConnectionCall() && testSourceConnection.TestConnectionCall() == true)
             {
                 compareSourceConn = new GetSQLTable(@SourceServerNameTextBox.Text, SourceUsernameTextBox.Text, SourcePasswordTextBox.Text, SourceDatabaseTextBox.Text, SourceTableTextBox.Text);
+                compareTargetConn = new GetSQLTable(@TargetServerTextBox.Text, TargetUsernameTextBox.Text, TargetPasswordTextBox.Text, TargetDatabaseTextBox.Text, TargetTableTextBox.Text);
 
-                GetSQLTable compareTestConn = new GetSQLTable(@TargetServerTextBox.Text, TargetUsernameTextBox.Text, TargetPasswordTextBox.Text, TargetDatabaseTextBox.Text, TargetTableTextBox.Text);
+                CompareByRow compare = new CompareByRow(compareSourceConn.dataSet.Tables[0], compareTargetConn.dataSet.Tables[0], 0);
+
+                resultContext = compare.CompareTables();
+                SourceOut.DataSource = compareSourceConn.dataSet.Tables[0];
+                TargetOut.DataSource = compareTargetConn.dataSet.Tables[0];
+
+
             }
             else
             {
@@ -96,10 +105,22 @@ namespace SQLTableComparison
         {
             TargetDatabaseName.Text = TargetDatabaseTextBox.Text;
         }
-
-        private void ComparedTab_Click(object sender, EventArgs e)
+        private void Tabs_SelectedIndexChanged(object sender, EventArgs e)
         {
-            ComparisonOutputMain.DataSource = compareSourceConn.dataSet.Tables[0];
+            if (SourceOut.DataSource != null)
+            {
+                DataGridViewCellStyle diffStyle = new DataGridViewCellStyle();
+                diffStyle.BackColor = Color.Orange;
+                diffStyle.ForeColor = Color.Black;
+
+                foreach (var item in resultContext.coCells)
+                {
+                    SourceOut.Rows[item.x].Cells[item.y].Style = diffStyle;
+                }
+            }
+
         }
+
+
     }
 }
