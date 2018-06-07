@@ -16,11 +16,12 @@ namespace SQLTableComparison
                                         "password=" + sqlPassword + ";" +
                                         "server=" + sqlServerName + ";" +
                                        "Trusted_Connection=yes;" +
-                                       "database=" + sqlDatabase + ";" + 
-                                       "connection timeout=30");
+                                       "database=" + sqlDatabase + ";" +
+                                       "connection timeout=10");
         }
 
-        public bool TestConnectionCall(){
+        public bool TestConnectionCall()
+        {
             //Attempt to open connection to the SQL server if unsucessful return error.
             try
             {
@@ -31,9 +32,9 @@ namespace SQLTableComparison
             catch (SqlException)
             {
                 return false;
-            }      
-           
+            }
+
         }
-        
+
     }
 }

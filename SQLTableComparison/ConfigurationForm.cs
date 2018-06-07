@@ -14,7 +14,8 @@ namespace SQLTableComparison
 {
     public partial class ConfigurationForm : MetroFramework.Forms.MetroForm
     {
-        string sourceMsg = "Source Connection";
+        string sourceMsg = "Source";
+        string targetMsg = "Target";
         public ConfigurationForm()
         {
             InitializeComponent();
@@ -23,14 +24,14 @@ namespace SQLTableComparison
         private void ConfigurationForm_Load(object sender, EventArgs e)
         {
             SourcePasswordTextBox.PasswordChar = '*';
-            TargetPasswordTextBox.PasswordChar = '*';
+            TargetPasswordTextBox.PasswordChar = '*';           
         }
 
-       
+
 
         private void DatabaseConfigurationGroupBox_Enter(object sender, EventArgs e)
         {
-           
+
         }
 
         private void SourceServerNameLabel_Click(object sender, EventArgs e)
@@ -53,10 +54,6 @@ namespace SQLTableComparison
             TargetServerNameLabel.Text = TargetServerTextBox.Text;
         }
 
-        private void SourceDatabaseComboBox_MouseDown(object sender, MouseEventArgs e)
-        {
-           
-        }
 
         private void SourceTestConnection_Click(object sender, EventArgs e)
         {
@@ -69,7 +66,7 @@ namespace SQLTableComparison
         private void TargetTestConnection_Click(object sender, EventArgs e)
         {
             TestSqlConnection testTargetConnection = new TestSqlConnection(TargetServerTextBox.Text, TargetUsernameTextBox.Text, TargetPasswordTextBox.Text, TargetDatabaseTextBox.Text, TargetTableTextBox.Text);
-            DisplayConnection(testTargetConnection.TestConnectionCall(), "Target Connection");
+            DisplayConnection(testTargetConnection.TestConnectionCall(), targetMsg);
         }
         private void SourceDatabaseTextBox_TextChanged(object sender, EventArgs e)
         {
@@ -88,18 +85,23 @@ namespace SQLTableComparison
 
             if (testTargetConnection.TestConnectionCall() && testSourceConnection.TestConnectionCall() == true)
             {
-                CompareTables compareSourceConn = new CompareTables(SourceServerNameTextBox.Text, SourceUsernameTextBox.Text, SourcePasswordTextBox.Text, SourceDatabaseTextBox.Text, SourceTableTextBox.Text);
-                CompareTables compareTestConn = new CompareTables(TargetServerTextBox.Text, TargetUsernameTextBox.Text, TargetPasswordTextBox.Text, TargetDatabaseTextBox.Text, TargetTableTextBox.Text);
+                GetSQLTable compareSourceConn = new GetSQLTable(@SourceServerNameTextBox.Text, SourceUsernameTextBox.Text, SourcePasswordTextBox.Text, SourceDatabaseTextBox.Text, SourceTableTextBox.Text);
+                
+                GetSQLTable compareTestConn = new GetSQLTable(@TargetServerTextBox.Text, TargetUsernameTextBox.Text, TargetPasswordTextBox.Text, TargetDatabaseTextBox.Text, TargetTableTextBox.Text);
             }
             else
             {
+                DisplayConnection(testSourceConnection.TestConnectionCall(), sourceMsg);
+                DisplayConnection(testTargetConnection.TestConnectionCall(), targetMsg);
 
             }
         }
 
 
-        void DisplayConnection(bool isSuccessful, string connectionType) {
-            if (!isSuccessful) {
+        void DisplayConnection(bool isSuccessful, string connectionType)
+        {
+            if (!isSuccessful)
+            {
                 MetroMessageBox.Show(this, "The Connection For " + connectionType + " Was Unsuccessful", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else

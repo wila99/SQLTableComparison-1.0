@@ -64,6 +64,7 @@
             this.SourceServerLabel = new MetroFramework.Controls.MetroLabel();
             this.SourceConnectionLabel = new MetroFramework.Controls.MetroLabel();
             this.CompareTablesButton = new MetroFramework.Controls.MetroButton();
+            this.Tabs = new MetroFramework.Controls.MetroTabControl();
             this.DatabaseDetailsGroupBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -94,6 +95,7 @@
             // 
             // DatabaseDetailsGroupBox
             // 
+            this.DatabaseDetailsGroupBox.Controls.Add(this.Tabs);
             this.DatabaseDetailsGroupBox.Controls.Add(this.pictureBox2);
             this.DatabaseDetailsGroupBox.Controls.Add(this.pictureBox1);
             this.DatabaseDetailsGroupBox.Controls.Add(this.TargetServerNameLabel);
@@ -121,7 +123,7 @@
             // pictureBox1
             // 
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(1002, 77);
+            this.pictureBox1.Location = new System.Drawing.Point(1021, 77);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(48, 53);
             this.pictureBox1.TabIndex = 7;
@@ -644,6 +646,14 @@
             this.CompareTablesButton.UseSelectable = true;
             this.CompareTablesButton.Click += new System.EventHandler(this.CompareTablesButton_Click);
             // 
+            // Tabs
+            // 
+            this.Tabs.Location = new System.Drawing.Point(256, 131);
+            this.Tabs.Name = "Tabs";
+            this.Tabs.Size = new System.Drawing.Size(200, 100);
+            this.Tabs.TabIndex = 34;
+            this.Tabs.UseSelectable = true;
+            // 
             // ConfigurationForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -703,6 +713,7 @@
         private MetroFramework.Controls.MetroTextBox SourceDatabaseTextBox;
         private MetroFramework.Controls.MetroTextBox TargetTableTextBox;
         private MetroFramework.Controls.MetroTextBox TargetDatabaseTextBox;
+        private MetroFramework.Controls.MetroTabControl Tabs;
     }
 }
 
