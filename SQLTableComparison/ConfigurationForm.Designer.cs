@@ -29,6 +29,10 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ConfigurationForm));
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.SourceLabel = new MetroFramework.Controls.MetroLabel();
             this.TargetLabel = new MetroFramework.Controls.MetroLabel();
             this.DatabaseDetailsGroupBox = new System.Windows.Forms.GroupBox();
@@ -477,8 +481,7 @@
             this.SourcePasswordTextBox.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
             this.SourcePasswordTextBox.CustomButton.UseSelectable = true;
             this.SourcePasswordTextBox.CustomButton.Visible = false;
-            this.SourcePasswordTextBox.Lines = new string[] {
-        "strongSA1"};
+            this.SourcePasswordTextBox.Lines = new string[0];
             this.SourcePasswordTextBox.Location = new System.Drawing.Point(114, 173);
             this.SourcePasswordTextBox.MaxLength = 32767;
             this.SourcePasswordTextBox.Name = "SourcePasswordTextBox";
@@ -490,7 +493,6 @@
             this.SourcePasswordTextBox.ShortcutsEnabled = true;
             this.SourcePasswordTextBox.Size = new System.Drawing.Size(310, 23);
             this.SourcePasswordTextBox.TabIndex = 26;
-            this.SourcePasswordTextBox.Text = "strongSA1";
             this.SourcePasswordTextBox.UseSelectable = true;
             this.SourcePasswordTextBox.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.SourcePasswordTextBox.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
@@ -732,12 +734,29 @@
             this.SourceOut.BackgroundColor = System.Drawing.Color.White;
             this.SourceOut.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.SourceOut.Cursor = System.Windows.Forms.Cursors.Arrow;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.SourceOut.DefaultCellStyle = dataGridViewCellStyle1;
             this.SourceOut.Dock = System.Windows.Forms.DockStyle.Fill;
             this.SourceOut.EditMode = System.Windows.Forms.DataGridViewEditMode.EditOnF2;
             this.SourceOut.Enabled = false;
             this.SourceOut.Location = new System.Drawing.Point(0, 0);
             this.SourceOut.Name = "SourceOut";
             this.SourceOut.ReadOnly = true;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.SourceOut.RowHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            this.SourceOut.RowHeadersVisible = false;
             this.SourceOut.ShowEditingIcon = false;
             this.SourceOut.ShowRowErrors = false;
             this.SourceOut.Size = new System.Drawing.Size(576, 536);
@@ -748,12 +767,29 @@
             this.TargetOut.AllowUserToAddRows = false;
             this.TargetOut.AllowUserToDeleteRows = false;
             this.TargetOut.BackgroundColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.Desktop;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.TargetOut.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.TargetOut.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.TargetOut.Cursor = System.Windows.Forms.Cursors.Arrow;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.Desktop;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.TargetOut.DefaultCellStyle = dataGridViewCellStyle4;
             this.TargetOut.Dock = System.Windows.Forms.DockStyle.Fill;
             this.TargetOut.Location = new System.Drawing.Point(0, 0);
             this.TargetOut.Name = "TargetOut";
             this.TargetOut.ReadOnly = true;
+            this.TargetOut.RowHeadersVisible = false;
             this.TargetOut.Size = new System.Drawing.Size(576, 536);
             this.TargetOut.TabIndex = 37;
             // 

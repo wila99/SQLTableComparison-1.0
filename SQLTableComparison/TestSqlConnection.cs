@@ -1,4 +1,5 @@
 ﻿using System.Data.SqlClient;
+using System.Linq;
 
 namespace SQLTableComparison
 {
@@ -7,12 +8,15 @@ namespace SQLTableComparison
         SqlConnection connection;
         public TestSqlConnection(string sqlServerName, string sqlUsername, string sqlPassword, string sqlDatabase, string sqlTable)
         {
-            connection = new SqlConnection("user id=" + sqlUsername + ";" +
-                                        "password=" + sqlPassword + ";" +
-                                        "server=" + sqlServerName + ";" +
-                                       "Trusted_Connection=yes;" +
-                                       "database=" + sqlDatabase + ";" +
-                                       "connection timeout=10");
+            if (new string[] { sqlServerName, sqlUsername, sqlPassword, sqlDatabase, sqlTable }.Contains("")) { }
+            else {
+                connection = new SqlConnection($"user id={sqlUsername};" +
+                                      $"password={sqlPassword};" +
+                                      $"server={sqlServerName};" +
+                                     "Trusted_Connection=yes;" +
+                                     $"database={sqlDatabase};" +
+                                     "connection timeout=10");
+            }
         }
 
         public bool TestConnectionCall()
@@ -20,9 +24,17 @@ namespace SQLTableComparison
             //Attempt to open connection to the SQL server if unsucessful return error.
             try
             {
-                connection.Open();
-                connection.Close();
-                return true;
+                if (connection == null)
+                {
+                    return false;
+                }
+                else
+                {
+                    connection.Open();
+                    connection.Close();
+                    return true;
+                }
+  
             }
             catch (SqlException)
             {

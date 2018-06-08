@@ -76,11 +76,11 @@ namespace SQLTableComparison
         {
             if (!isSuccessful)
             {
-                MetroMessageBox.Show(this, "The Connection For " + connectionType + " Was Unsuccessful", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MetroMessageBox.Show(this, $"The Connection For {connectionType} Was Unsuccessful", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else
             {
-                MetroMessageBox.Show(this, "The Connection For " + connectionType + " Was Successful", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MetroMessageBox.Show(this, $"The Connection For {connectionType} Was Successful", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
 

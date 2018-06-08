@@ -27,11 +27,11 @@ namespace SQLTableComparison
 
         void SetConnection()
         {
-            compareConnection = new SqlConnection("user id=" + Username + ";" +
-                                        "password=" + Password + ";" +
-                                        "server=" + serverName + ";" +
+            compareConnection = new SqlConnection($"user id={Username};" +
+                                        $"password={Password};" +
+                                        $"server={serverName};" +
                                        "Trusted_Connection=yes;" +
-                                       "database=" + Database + ";" +
+                                       $"database={Database};" +
                                        "connection timeout=10");
             QueryTable();
         }
@@ -39,7 +39,7 @@ namespace SQLTableComparison
         void QueryTable()
         {
 
-            string dataQuery = "SELECT * FROM " + Table;
+            string dataQuery = $"SELECT * FROM {Table}";
 
             SqlCommand sqlCommand = new SqlCommand(dataQuery, compareConnection);
             compareConnection.Open();
