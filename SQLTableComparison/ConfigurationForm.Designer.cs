@@ -747,7 +747,6 @@
             this.SourceOut.Enabled = false;
             this.SourceOut.Location = new System.Drawing.Point(0, 0);
             this.SourceOut.Name = "SourceOut";
-            this.SourceOut.ReadOnly = true;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
             dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));

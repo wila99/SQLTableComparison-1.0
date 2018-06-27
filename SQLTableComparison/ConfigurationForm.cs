@@ -16,8 +16,6 @@ namespace SQLTableComparison
     {
         string sourceMsg = "Source";
         string targetMsg = "Target";
-        GetSQLTable compareSourceConn;
-        GetSQLTable compareTargetConn;
         ResultContext resultContext;
         public ConfigurationForm()
         {
@@ -32,41 +30,49 @@ namespace SQLTableComparison
 
         private void SourceTestConnection_Click(object sender, EventArgs e)
         {
-            TestSqlConnection testSourceConnection = new TestSqlConnection(SourceServerNameTextBox.Text, SourceUsernameTextBox.Text, SourcePasswordTextBox.Text, SourceDatabaseTextBox.Text, SourceTableTextBox.Text);
-            DisplayConnection(testSourceConnection.TestConnectionCall(), sourceMsg);
+            Connection testSourceConnection = new Connection { Database = SourceDatabaseTextBox.Text, Server = SourceServerNameTextBox.Text, Username = SourceUsernameTextBox.Text, Password = SourcePasswordTextBox.Text, Table = SourceTableTextBox.Text };
+            testSourceConnection.SetConnection();
+            DisplayConnection(testSourceConnection.TestConnection(), sourceMsg);
         }
 
 
 
         private void TargetTestConnection_Click(object sender, EventArgs e)
         {
-            TestSqlConnection testTargetConnection = new TestSqlConnection(TargetServerTextBox.Text, TargetUsernameTextBox.Text, TargetPasswordTextBox.Text, TargetDatabaseTextBox.Text, TargetTableTextBox.Text);
-            DisplayConnection(testTargetConnection.TestConnectionCall(), targetMsg);
+            Connection testTargetConnection = new Connection { Database = TargetDatabaseTextBox.Text, Server = @TargetServerTextBox.Text, Username = TargetUsernameTextBox.Text, Password = TargetPasswordTextBox.Text, Table = TargetTableTextBox.Text };
+            testTargetConnection.SetConnection();
+            DisplayConnection(testTargetConnection.TestConnection(), targetMsg);
         }
 
 
         private void CompareTablesButton_Click(object sender, EventArgs e)
         {
-            TestSqlConnection testTargetConnection = new TestSqlConnection(TargetServerTextBox.Text, TargetUsernameTextBox.Text, TargetPasswordTextBox.Text, TargetDatabaseTextBox.Text, TargetTableTextBox.Text);
-            TestSqlConnection testSourceConnection = new TestSqlConnection(SourceServerNameTextBox.Text, SourceUsernameTextBox.Text, SourcePasswordTextBox.Text, SourceDatabaseTextBox.Text, SourceTableTextBox.Text);
+            Connection sourceConnection = new Connection { Database = SourceDatabaseTextBox.Text, Server = SourceServerNameTextBox.Text, Username = SourceUsernameTextBox.Text, Password = SourcePasswordTextBox.Text, Table = SourceTableTextBox.Text };
+            Connection targetConnection = new Connection { Database = TargetDatabaseTextBox.Text, Server = @TargetServerTextBox.Text, Username = TargetUsernameTextBox.Text, Password = TargetPasswordTextBox.Text, Table = TargetTableTextBox.Text };
 
-            if (testTargetConnection.TestConnectionCall() && testSourceConnection.TestConnectionCall() == true)
+            sourceConnection.SetConnection();
+            targetConnection.SetConnection();
+
+            if (sourceConnection.TestConnection() && targetConnection.TestConnection() == true)
             {
-                compareSourceConn = new GetSQLTable(@SourceServerNameTextBox.Text, SourceUsernameTextBox.Text, SourcePasswordTextBox.Text, SourceDatabaseTextBox.Text, SourceTableTextBox.Text);
-                compareTargetConn = new GetSQLTable(@TargetServerTextBox.Text, TargetUsernameTextBox.Text, TargetPasswordTextBox.Text, TargetDatabaseTextBox.Text, TargetTableTextBox.Text);
+                Retrieve sourceRetrieve = new Retrieve();
+                sourceRetrieve.QueryTable(sourceConnection);
 
-                CompareByRow compare = new CompareByRow(compareSourceConn.dataSet.Tables[0], compareTargetConn.dataSet.Tables[0], 0);
+                Retrieve targetRetrieve = new Retrieve();
+                targetRetrieve.QueryTable(targetConnection);
+
+                CompareByRow compare = new CompareByRow(sourceRetrieve.dataSet.Tables[0], targetRetrieve.dataSet.Tables[0], 0);
 
                 resultContext = compare.CompareTables();
-                SourceOut.DataSource = compareSourceConn.dataSet.Tables[0];
-                TargetOut.DataSource = compareTargetConn.dataSet.Tables[0];
+                SourceOut.DataSource = sourceRetrieve.dataSet.Tables[0];
+                TargetOut.DataSource = targetRetrieve.dataSet.Tables[0];
 
 
             }
             else
             {
-                DisplayConnection(testSourceConnection.TestConnectionCall(), sourceMsg);
-                DisplayConnection(testTargetConnection.TestConnectionCall(), targetMsg);
+                DisplayConnection(sourceConnection.TestConnection(), sourceMsg);
+                DisplayConnection(targetConnection.TestConnection(), targetMsg);
 
             }
         }
