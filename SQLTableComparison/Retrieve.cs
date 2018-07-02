@@ -7,13 +7,12 @@ namespace SQLTableComparison
     class Retrieve
     {
         public DataSet dataSet = new DataSet();
-        public Retrieve()
-        {
-
-        }
-
         public DataSet QueryTable(Connection conn)
         {
+            if (dataSet != null)
+            {
+                dataSet.Clear();
+            }
 
             string dataQuery = $"SELECT * FROM {conn.Table}";
 

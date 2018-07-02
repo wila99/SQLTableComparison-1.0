@@ -113,6 +113,9 @@
             // 
             // DatabaseDetailsGroupBox
             // 
+            this.DatabaseDetailsGroupBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.DatabaseDetailsGroupBox.Controls.Add(this.pictureBox2);
             this.DatabaseDetailsGroupBox.Controls.Add(this.pictureBox1);
             this.DatabaseDetailsGroupBox.Controls.Add(this.TargetServerNameLabel);
@@ -177,6 +180,9 @@
             // 
             // Tabs
             // 
+            this.Tabs.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.Tabs.Controls.Add(this.ConfigTab);
             this.Tabs.Controls.Add(this.ComparedTab);
             this.Tabs.Location = new System.Drawing.Point(23, 217);
@@ -200,6 +206,9 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox1.Controls.Add(this.CompareTablesButton);
             this.groupBox1.Controls.Add(this.TargetTableTextBox);
             this.groupBox1.Controls.Add(this.TargetDatabaseTextBox);
@@ -233,6 +242,7 @@
             // 
             // CompareTablesButton
             // 
+            this.CompareTablesButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.CompareTablesButton.Location = new System.Drawing.Point(977, 491);
             this.CompareTablesButton.Name = "CompareTablesButton";
             this.CompareTablesButton.Size = new System.Drawing.Size(164, 33);
@@ -243,6 +253,7 @@
             // 
             // TargetTableTextBox
             // 
+            this.TargetTableTextBox.Anchor = System.Windows.Forms.AnchorStyles.Right;
             // 
             // 
             // 
@@ -275,6 +286,7 @@
             // 
             // TargetDatabaseTextBox
             // 
+            this.TargetDatabaseTextBox.Anchor = System.Windows.Forms.AnchorStyles.Right;
             // 
             // 
             // 
@@ -308,6 +320,7 @@
             // 
             // SourceTableTextBox
             // 
+            this.SourceTableTextBox.Anchor = System.Windows.Forms.AnchorStyles.Right;
             // 
             // 
             // 
@@ -340,6 +353,7 @@
             // 
             // SourceDatabaseTextBox
             // 
+            this.SourceDatabaseTextBox.Anchor = System.Windows.Forms.AnchorStyles.Right;
             // 
             // 
             // 
@@ -373,6 +387,7 @@
             // 
             // TargetServerTextBox
             // 
+            this.TargetServerTextBox.Anchor = System.Windows.Forms.AnchorStyles.Right;
             // 
             // 
             // 
@@ -406,6 +421,7 @@
             // 
             // SourceServerNameTextBox
             // 
+            this.SourceServerNameTextBox.Anchor = System.Windows.Forms.AnchorStyles.Right;
             // 
             // 
             // 
@@ -459,6 +475,7 @@
             // 
             // TargetTestConnection
             // 
+            this.TargetTestConnection.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.TargetTestConnection.Location = new System.Drawing.Point(987, 316);
             this.TargetTestConnection.Name = "TargetTestConnection";
             this.TargetTestConnection.Size = new System.Drawing.Size(103, 23);
@@ -469,6 +486,7 @@
             // 
             // SourcePasswordTextBox
             // 
+            this.SourcePasswordTextBox.Anchor = System.Windows.Forms.AnchorStyles.Right;
             // 
             // 
             // 
@@ -499,6 +517,7 @@
             // 
             // TargetUsernameTextBox
             // 
+            this.TargetUsernameTextBox.Anchor = System.Windows.Forms.AnchorStyles.Right;
             // 
             // 
             // 
@@ -589,6 +608,7 @@
             // 
             // SourceTestConnection
             // 
+            this.SourceTestConnection.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.SourceTestConnection.Location = new System.Drawing.Point(321, 316);
             this.SourceTestConnection.Name = "SourceTestConnection";
             this.SourceTestConnection.Size = new System.Drawing.Size(103, 23);
@@ -599,6 +619,7 @@
             // 
             // TargetPasswordTextBox
             // 
+            this.TargetPasswordTextBox.Anchor = System.Windows.Forms.AnchorStyles.Right;
             // 
             // 
             // 
@@ -631,6 +652,7 @@
             // 
             // SourceUsernameTextBox
             // 
+            this.SourceUsernameTextBox.Anchor = System.Windows.Forms.AnchorStyles.Right;
             // 
             // 
             // 
@@ -756,6 +778,7 @@
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.SourceOut.RowHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.SourceOut.RowHeadersVisible = false;
+            this.SourceOut.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.SourceOut.ShowEditingIcon = false;
             this.SourceOut.ShowRowErrors = false;
             this.SourceOut.Size = new System.Drawing.Size(576, 536);
@@ -770,8 +793,8 @@
             dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
             dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.Desktop;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.DodgerBlue;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.White;
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.TargetOut.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.TargetOut.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -785,6 +808,7 @@
             dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.TargetOut.DefaultCellStyle = dataGridViewCellStyle4;
             this.TargetOut.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.TargetOut.Enabled = false;
             this.TargetOut.Location = new System.Drawing.Point(0, 0);
             this.TargetOut.Name = "TargetOut";
             this.TargetOut.ReadOnly = true;

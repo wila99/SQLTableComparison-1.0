@@ -17,6 +17,8 @@ namespace SQLTableComparison
         string sourceMsg = "Source";
         string targetMsg = "Target";
         ResultContext resultContext;
+        Retrieve sourceRetrieve = new Retrieve();
+        Retrieve targetRetrieve = new Retrieve();
         public ConfigurationForm()
         {
             InitializeComponent();
@@ -47,6 +49,8 @@ namespace SQLTableComparison
 
         private void CompareTablesButton_Click(object sender, EventArgs e)
         {
+            
+
             Connection sourceConnection = new Connection { Database = SourceDatabaseTextBox.Text, Server = SourceServerNameTextBox.Text, Username = SourceUsernameTextBox.Text, Password = SourcePasswordTextBox.Text, Table = SourceTableTextBox.Text };
             Connection targetConnection = new Connection { Database = TargetDatabaseTextBox.Text, Server = @TargetServerTextBox.Text, Username = TargetUsernameTextBox.Text, Password = TargetPasswordTextBox.Text, Table = TargetTableTextBox.Text };
 
@@ -55,10 +59,7 @@ namespace SQLTableComparison
 
             if (sourceConnection.TestConnection() && targetConnection.TestConnection() == true)
             {
-                Retrieve sourceRetrieve = new Retrieve();
                 sourceRetrieve.QueryTable(sourceConnection);
-
-                Retrieve targetRetrieve = new Retrieve();
                 targetRetrieve.QueryTable(targetConnection);
 
                 CompareByRow compare = new CompareByRow(sourceRetrieve.dataSet.Tables[0], targetRetrieve.dataSet.Tables[0], 0);
@@ -71,8 +72,8 @@ namespace SQLTableComparison
             }
             else
             {
-                DisplayConnection(sourceConnection.TestConnection(), sourceMsg);
-                DisplayConnection(targetConnection.TestConnection(), targetMsg);
+                DisplayConnection(false, sourceMsg);
+                DisplayConnection(false, targetMsg);
 
             }
         }
@@ -122,6 +123,17 @@ namespace SQLTableComparison
                 foreach (var item in resultContext.coCells)
                 {
                     SourceOut.Rows[item.x].Cells[item.y].Style = diffStyle;
+                }
+            }
+            if (TargetOut.DataSource != null)
+            {
+                DataGridViewCellStyle diffStyle = new DataGridViewCellStyle();
+                diffStyle.BackColor = Color.Orange;
+                diffStyle.ForeColor = Color.Black;
+
+                foreach (var item in resultContext.coCells)
+                {
+                    TargetOut.Rows[item.x].Cells[item.y].Style = diffStyle;
                 }
             }
 
