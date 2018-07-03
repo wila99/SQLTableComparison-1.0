@@ -4,7 +4,7 @@ using System.Data.SqlClient;
 
 namespace SQLTableComparison
 {
-    class Retrieve
+    public class Retrieve
     {
         public DataSet dataSet = new DataSet();
         public DataSet QueryTable(Connection conn)
